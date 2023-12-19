@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block page_independent_content %}
+
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 48px; font-family: "Times New Roman", serif; color: #055D7A;'>Profile Page</span></strong></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 20px; font-family: "Times New Roman", serif;'>Details:</span></strong></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><br></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><br></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><br></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Name: {{ first_name }} {{ last_name }}&nbsp;</span></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Email Address: {{ email }}&nbsp;&nbsp;</span></p>
+
+	<br>
+	<br>
+	<br>
+	<p style="color: blue">Want to edit profile info? <a href="{% url 'edit_profile' %}">Edit.</a></p>
+{% endblock %}

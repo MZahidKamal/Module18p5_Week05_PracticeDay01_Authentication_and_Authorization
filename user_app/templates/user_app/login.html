@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block page_independent_content %}
+
+	<form method="post" action="" enctype="multipart/form-data" novalidate style="width: 50%; height: 500px; margin: auto" class="pt-2">
+
+		{#CSRF Token Added here.#}
+		{% csrf_token %}
+
+		<h3>User {{ type }}</h3>
+		<br>
+
+		<!--{{ form | crispy }}-->
+		{% for field in form %}
+			{{ field.label }}
+			{{ field }}
+			{{ field.errors | striptags }}
+		{% endfor %}
+
+
+		{% if form.non_field_errors %}
+			{% for error in form.non_field_errors %}
+				<small class="bg-danger text-white p-3">{{ error }}</small>
+			{% endfor %}
+		{% endif %}
+
+
+		{% if messages %}
+			{% for each in messages %}
+				<p class="fw-medium" style="color: green">{{ each }}</p>
+			{% endfor %}
+		{% endif %}
+
+
+		<br>
+		<button type="submit" class="btn btn-primary mt-2">{{ type }}</button>
+		<br>
+		<br>
+
+		<p style="color: blue">Don't have an User account? <a href="{% url 'signup' %}">Sign Up.</a></p>
+
+	</form>
+
+{% endblock %}
